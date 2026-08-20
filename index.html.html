@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mayank Agarwal — Cloud &amp; DevOps Engineer</title>
+<meta name="description" content="Mayank Agarwal — Cloud &amp; DevOps Engineer / SRE, open to relocation anywhere in India or abroad. AWS, Kubernetes, CI/CD, infrastructure automation.">
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTQiIGZpbGw9IiMxNDE3MUIiLz48dGV4dCB4PSIzMSIgeT0iNDYiIGZvbnQtZmFtaWx5PSJJQk0gUGxleCBNb25vLCBtb25vc3BhY2UiIGZvbnQtc2l6ZT0iMzYiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiNFOEEzM0QiIHRleHQtYW5jaG9yPSJtaWRkbGUiPk08L3RleHQ+PGNpcmNsZSBjeD0iNTAiIGN5PSIxNCIgcj0iNi41IiBmaWxsPSIjNUZCODhGIi8+PC9zdmc+">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mayank Agarwal — Cloud &amp; DevOps Engineer">
+<meta property="og:description" content="AWS, Kubernetes, CI/CD, infrastructure automation. Open to relocation anywhere in India or abroad.">
+<meta property="og:image" content="og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Mayank Agarwal — Cloud &amp; DevOps Engineer">
+<meta name="twitter:description" content="AWS, Kubernetes, CI/CD, infrastructure automation. Open to relocation anywhere in India or abroad.">
+<meta name="twitter:image" content="og-image.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #14171B;
+    --surface: #1C2026;
+    --surface-2: #23272E;
+    --border: #2E333B;
+    --text: #ECEDEE;
+    --text-muted: #8B9199;
+    --amber: #E8A33D;
+    --amber-dim: rgba(232,163,61,0.12);
+    --green: #5FB88F;
+    --green-dim: rgba(95,184,143,0.14);
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-body: 'IBM Plex Sans', sans-serif;
+    --font-mono: 'IBM Plex Mono', monospace;
+    --maxw: 1040px;
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+
+  body{
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body::before{
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(var(--border) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 64px 64px;
+    opacity: 0.06;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  a{ color: inherit; }
+  img{ max-width: 100%; display: block; }
+
+  :focus-visible{
+    outline: 2px solid var(--amber);
+    outline-offset: 3px;
+  }
+
+  .wrap{
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 0 24px;
+    position: relative;
+    z-index: 1;
+  }
+
+  section{ padding: 72px 0; border-bottom: 1px solid var(--border); }
+  section:last-of-type{ border-bottom: none; }
+
+  .eyebrow{
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--amber);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 14px;
+  }
+  .eyebrow::before{
+    content: "";
+    width: 16px;
+    height: 1px;
+    background: var(--amber);
+    display: inline-block;
+  }
+
+  h2{
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(22px, 3vw, 30px);
+    margin: 0 0 32px;
+    letter-spacing: -0.01em;
+  }
+
+  /* ---------- Status bar ---------- */
+  .statusbar{
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(20,23,27,0.88);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+  }
+  .statusbar-inner{
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+  }
+  .status-left{ display: flex; align-items: center; gap: 10px; color: var(--text); white-space: nowrap; }
+  .dot{
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--green);
+    box-shadow: 0 0 0 0 rgba(95,184,143,0.6);
+    animation: pulse 2.4s ease-out infinite;
+    flex-shrink: 0;
+  }
+  @keyframes pulse{
+    0%   { box-shadow: 0 0 0 0 rgba(95,184,143,0.5); }
+    70%  { box-shadow: 0 0 0 7px rgba(95,184,143,0); }
+    100% { box-shadow: 0 0 0 0 rgba(95,184,143,0); }
+  }
+  .status-nav{
+    display: flex;
+    gap: 22px;
+    color: var(--text-muted);
+  }
+  .status-nav a{ text-decoration: none; }
+  .status-nav a:hover{ color: var(--amber); }
+  .status-right{ color: var(--text-muted); white-space: nowrap; }
+  .status-right span{ color: var(--green); }
+
+  @media (max-width: 680px){
+    .status-nav{ display: none; }
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{ padding-top: 88px; }
+  .hero-kicker{
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--green);
+    background: var(--green-dim);
+    border: 1px solid rgba(95,184,143,0.3);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    border-radius: 100px;
+    margin-bottom: 24px;
+  }
+  .hero-kicker .dot{ animation-duration: 2.4s; }
+
+  h1{
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(38px, 6.4vw, 64px);
+    line-height: 1.04;
+    letter-spacing: -0.02em;
+    margin: 0 0 14px;
+  }
+  .hero-role{
+    font-family: var(--font-mono);
+    font-size: clamp(14px, 2vw, 17px);
+    letter-spacing: 0.04em;
+    color: var(--amber);
+    margin: 0 0 22px;
+  }
+  .hero-summary{
+    max-width: 640px;
+    color: var(--text-muted);
+    font-size: 16.5px;
+    margin: 0 0 36px;
+  }
+
+  .cta-row{ display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 56px; }
+  .btn{
+    font-family: var(--font-mono);
+    font-size: 13.5px;
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+  .btn-primary{ background: var(--amber); color: #14171B; border-color: var(--amber); font-weight: 600; }
+  .btn-primary:hover{ transform: translateY(-1px); }
+  .btn-ghost{ color: var(--text); }
+  .btn-ghost:hover{ border-color: var(--amber); color: var(--amber); }
+
+  .metrics{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .metric{
+    background: var(--surface);
+    padding: 22px 20px;
+  }
+  .metric-value{
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(26px, 4vw, 34px);
+    color: var(--amber);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .metric-label{
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--text-muted);
+    letter-spacing: 0.03em;
+  }
+  @media (max-width: 560px){
+    .metrics{ grid-template-columns: 1fr; }
+  }
+
+  /* ---------- Services (skills) ---------- */
+  .service-grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+  @media (max-width: 700px){ .service-grid{ grid-template-columns: 1fr; } }
+
+  .service-card{
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 22px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .service-card.in-view{ opacity: 1; transform: translateY(0); }
+
+  .service-head{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  .service-name{ font-weight: 600; font-size: 15.5px; }
+  .service-status{
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--green);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+  }
+  .service-status .dot{ animation: none; width: 6px; height: 6px; }
+  .service-desc{ color: var(--text-muted); font-size: 14px; line-height: 1.55; }
+
+  /* ---------- Projects ---------- */
+  .project-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+  @media (max-width: 900px){ .project-grid{ grid-template-columns: 1fr; } }
+
+  .project-card{
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 22px;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .project-card.in-view{ opacity: 1; transform: translateY(0); }
+
+  .project-head{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    margin-bottom: 12px;
+  }
+  .project-status{ color: var(--green); }
+  .project-date{ color: var(--text-muted); }
+
+  .project-title{
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 16px;
+    margin: 0 0 8px;
+    color: var(--text);
+  }
+  .project-desc{
+    color: var(--text-muted);
+    font-size: 13.5px;
+    line-height: 1.55;
+    margin: 0 0 14px;
+    flex-grow: 1;
+  }
+  .project-tags{ display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+  .tag{
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    color: var(--amber);
+    background: var(--amber-dim);
+    border: 1px solid rgba(232,163,61,0.25);
+    padding: 3px 8px;
+    border-radius: 100px;
+  }
+  .project-meta{
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border);
+    padding-top: 10px;
+  }
+  .project-link{
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    color: var(--amber);
+    text-decoration: none;
+    border-top: 1px solid var(--border);
+    padding-top: 10px;
+  }
+  .project-link:hover{ text-decoration: underline; }
+
+  /* ---------- Deployment log (experience) ---------- */
+  .log-entry{
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 24px;
+    padding: 28px 0;
+    border-top: 1px solid var(--border);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .log-entry.in-view{ opacity: 1; transform: translateY(0); }
+  .log-entry:first-of-type{ border-top: none; padding-top: 0; }
+
+  @media (max-width: 640px){
+    .log-entry{ grid-template-columns: 1fr; gap: 8px; }
+  }
+
+  .log-time{
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    color: var(--text-muted);
+    padding-top: 2px;
+  }
+  .log-time .current{
+    color: var(--green);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .log-time .current .dot{ width: 6px; height: 6px; }
+
+  .log-title{ font-weight: 600; font-size: 17px; margin-bottom: 2px; }
+  .log-company{ color: var(--amber); }
+  .log-loc{
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    color: var(--text-muted);
+    margin-bottom: 14px;
+  }
+  .log-lines{ margin: 0; padding: 0; list-style: none; }
+  .log-lines li{
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 8px;
+    color: var(--text-muted);
+    font-size: 14.5px;
+  }
+  .log-lines li::before{
+    content: "›";
+    position: absolute;
+    left: 0;
+    color: var(--amber);
+    font-family: var(--font-mono);
+  }
+
+  /* ---------- Credentials ---------- */
+  .cred-cols{
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 48px;
+  }
+  @media (max-width: 700px){ .cred-cols{ grid-template-columns: 1fr; gap: 36px; } }
+
+  .badge-grid{ display: flex; flex-wrap: wrap; gap: 10px; }
+  .badge{
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    color: var(--text);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 8px 14px 8px 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .badge svg{ flex-shrink: 0; }
+
+  .edu-card{
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 22px;
+  }
+  .edu-degree{ font-weight: 600; font-size: 16px; margin-bottom: 4px; }
+  .edu-school{ color: var(--amber); font-size: 14.5px; margin-bottom: 4px; }
+  .edu-date{ font-family: var(--font-mono); font-size: 12.5px; color: var(--text-muted); }
+
+  /* ---------- Contact / terminal ---------- */
+  .terminal{
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .terminal-bar{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    background: var(--surface-2);
+    border-bottom: 1px solid var(--border);
+  }
+  .terminal-bar .tdot{ width: 10px; height: 10px; border-radius: 50%; }
+  .terminal-bar .tdot:nth-child(1){ background: #E5645C; }
+  .terminal-bar .tdot:nth-child(2){ background: #E8A33D; }
+  .terminal-bar .tdot:nth-child(3){ background: #5FB88F; }
+  .terminal-title{
+    margin-left: 8px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+  .terminal-body{
+    padding: 26px 24px 30px;
+    font-family: var(--font-mono);
+    font-size: 14px;
+  }
+  .term-line{ margin: 0 0 16px; color: var(--text-muted); }
+  .term-line .prompt{ color: var(--green); margin-right: 8px; }
+  .term-line .cmd{ color: var(--text); }
+
+  .contact-rows{ margin: 4px 0 18px; }
+  .contact-row{
+    display: flex;
+    gap: 18px;
+    padding: 10px 0;
+    border-top: 1px solid var(--border);
+    align-items: baseline;
+    flex-wrap: wrap;
+  }
+  .contact-row:first-child{ border-top: none; }
+  .contact-key{ color: var(--green); width: 90px; flex-shrink: 0; }
+  .contact-val a{ color: var(--text); text-decoration: none; border-bottom: 1px dashed var(--border); }
+  .contact-val a:hover{ color: var(--amber); border-color: var(--amber); }
+
+  .copy-btn{
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    border-radius: 5px;
+    padding: 3px 8px;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+  .copy-btn:hover{ border-color: var(--amber); color: var(--amber); }
+
+  .term-cursor{
+    display: inline-block;
+    width: 8px; height: 15px;
+    background: var(--amber);
+    animation: blink 1s step-end infinite;
+    vertical-align: text-bottom;
+    margin-left: 2px;
+  }
+  @keyframes blink{ 50%{ opacity: 0; } }
+
+  footer{
+    padding: 32px 0 60px;
+    text-align: center;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+    html{ scroll-behavior: auto; }
+    .service-card, .log-entry{ opacity: 1; transform: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="statusbar">
+  <div class="statusbar-inner">
+    <div class="status-left">
+      <span class="dot" aria-hidden="true"></span>
+      <span>mayank-agarwal &nbsp;·&nbsp; ALL SYSTEMS OPERATIONAL</span>
+    </div>
+    <nav class="status-nav">
+      <a href="#services">services</a>
+      <a href="#projects">projects</a>
+      <a href="#log">log</a>
+      <a href="#credentials">credentials</a>
+      <a href="#contact">contact</a>
+    </nav>
+    <div class="status-right">session uptime <span id="uptime">00:00:00</span></div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <section class="hero" id="overview">
+    <div class="hero-kicker"><span class="dot" aria-hidden="true"></span> Available immediately · Open to relocation, India or abroad</div>
+    <h1>Mayank Agarwal</h1>
+    <p class="hero-role">CLOUD &amp; DEVOPS ENGINEER — SITE RELIABILITY</p>
+    <p class="hero-summary">I build and run AWS infrastructure that stays up. Two years across freelance, datacenter, and enterprise environments — CI/CD pipelines, containerized deployments, monitoring, and cost optimization, with the networking and Linux fundamentals underneath all of it. Open to relocating anywhere in India or abroad.</p>
+
+    <div class="cta-row">
+      <a class="btn btn-primary" href="mailto:mayankagarwal270320020@gmail.com">Email me →</a>
+      <a class="btn btn-ghost" href="Mayank_Agarwal_Resume.pdf" target="_blank" rel="noopener">Download resume ↓</a>
+      <a class="btn btn-ghost" href="tel:+919462085246">Call +91 94620 85246</a>
+      <a class="btn btn-ghost" href="https://www.linkedin.com/in/mayank-agarwal-b52b691b0/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn btn-ghost" href="https://github.com/mayank2478" target="_blank" rel="noopener">GitHub</a>
+    </div>
+
+    <div class="metrics">
+      <div class="metric">
+        <div class="metric-value" data-count="99.9" data-suffix="%">0%</div>
+        <div class="metric-label">uptime maintained</div>
+      </div>
+      <div class="metric">
+        <div class="metric-value" data-count="40" data-suffix="%">0%</div>
+        <div class="metric-label">faster deployments</div>
+      </div>
+      <div class="metric">
+        <div class="metric-value" data-count="25" data-suffix="%">0%</div>
+        <div class="metric-label">lower cloud spend</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <p class="eyebrow">Services</p>
+    <h2>What I run</h2>
+    <div class="service-grid">
+
+      <div class="service-card">
+        <div class="service-head">
+          <span class="service-name">AWS &amp; Cloud Platforms</span>
+          <span class="service-status"><span class="dot" aria-hidden="true"></span>operational</span>
+        </div>
+        <div class="service-desc">EC2, S3, VPC, IAM, CloudWatch, RDS, Lambda, ELB, Route 53, CloudFormation. Also OpenStack, VMware vSphere, and KVM for on-prem/hybrid work.</div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-head">
+          <span class="service-name">Containers &amp; Orchestration</span>
+          <span class="service-status"><span class="dot" aria-hidden="true"></span>operational</span>
+        </div>
+        <div class="service-desc">Docker and Kubernetes for containerized microservices — built for consistent, repeatable deployments across environments.</div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-head">
+          <span class="service-name">CI/CD &amp; Automation</span>
+          <span class="service-status"><span class="dot" aria-hidden="true"></span>operational</span>
+        </div>
+        <div class="service-desc">Git, GitHub, CI/CD pipelines, shell scripting, and Python automation to remove manual steps from every release.</div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-head">
+          <span class="service-name">Infrastructure as Code</span>
+          <span class="service-status"><span class="dot" aria-hidden="true"></span>operational</span>
+        </div>
+        <div class="service-desc">CloudFormation in production, with working exposure to Ansible for configuration management.</div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-head">
+          <span class="service-name">Networking</span>
+          <span class="service-status"><span class="dot" aria-hidden="true"></span>operational</span>
+        </div>
+        <div class="service-desc">VPC, VPN, BGP, TCP/UDP, DNS, L2/L3, MPLS, SNMP, syslog — the fundamentals that keep infrastructure reachable and fast.</div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-head">
+          <span class="service-name">Monitoring &amp; Backup</span>
+          <span class="service-status"><span class="dot" aria-hidden="true"></span>operational</span>
+        </div>
+        <div class="service-desc">Grafana and Prometheus for alerting and observability. Veeam and Commvault for backup and disaster recovery, built to meet RPO/RTO targets.</div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-head">
+          <span class="service-name">Security &amp; Compliance</span>
+          <span class="service-status"><span class="dot" aria-hidden="true"></span>operational</span>
+        </div>
+        <div class="service-desc">IAM policies, security groups, NACLs, encryption, and compliance audits as a default part of every build, not an afterthought.</div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-head">
+          <span class="service-name">OS &amp; Databases</span>
+          <span class="service-status"><span class="dot" aria-hidden="true"></span>operational</span>
+        </div>
+        <div class="service-desc">Linux/Unix administration across Ubuntu, CentOS, and RHEL. MySQL, RDS, and Firebase on the data side.</div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="projects">
+    <p class="eyebrow">Builds</p>
+    <h2>What I've shipped</h2>
+    <div class="project-grid">
+
+      <div class="project-card">
+        <div class="project-head">
+          <span class="project-status">● deployed</span>
+          <span class="project-date">2024 — present</span>
+        </div>
+        <h3 class="project-title">Production AWS Infrastructure — Job Binge</h3>
+        <p class="project-desc">Designed and run the AWS infrastructure behind a live production application — VPC networking, containerized services, CI/CD pipelines, and monitoring — sustaining 99.9% uptime while cutting release time by 40%.</p>
+        <div class="project-tags"><span class="tag">AWS</span><span class="tag">Docker</span><span class="tag">Kubernetes</span><span class="tag">Grafana</span></div>
+        <div class="project-meta">Freelance client engagement — infrastructure private</div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-head">
+          <span class="project-status">● completed</span>
+          <span class="project-date">2023</span>
+        </div>
+        <h3 class="project-title">Multi-Cloud Enterprise Migration</h3>
+        <p class="project-desc">Built and operated enterprise cloud solutions across AWS, OpenStack, and VMware for multiple client workloads at NxtGen Datacenter, cutting downtime 20% through proactive monitoring and resource optimization.</p>
+        <div class="project-tags"><span class="tag">OpenStack</span><span class="tag">VMware</span><span class="tag">Veeam</span><span class="tag">Networking</span></div>
+        <div class="project-meta">Enterprise engagement — infrastructure private</div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-head">
+          <span class="project-status">● completed</span>
+          <span class="project-date">2022</span>
+        </div>
+        <h3 class="project-title">Secure Text Transfer</h3>
+        <p class="project-desc">A Python application built during my IBM internship for encrypted text transfer using key encryption and AWS services — my first hands-on project through a full planning-to-deployment lifecycle.</p>
+        <div class="project-tags"><span class="tag">Python</span><span class="tag">Encryption</span><span class="tag">AWS</span></div>
+        <a class="project-link" href="https://github.com/mayank2478" target="_blank" rel="noopener">View on GitHub →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="log">
+    <p class="eyebrow">Deployment log</p>
+    <h2>Experience</h2>
+
+    <div class="log-entry">
+      <div class="log-time"><span class="current"><span class="dot" aria-hidden="true"></span>Dec 2024 — present</span></div>
+      <div>
+        <div class="log-title">Cloud &amp; DevOps Engineer <span class="log-company">· Freelance</span></div>
+        <div class="log-loc">Remote, India</div>
+        <ul class="log-lines">
+          <li>Design and manage scalable AWS infrastructure for a production application, sustaining 99.9% uptime.</li>
+          <li>Built end-to-end CI/CD pipelines that cut release cycle time by 40% and removed manual deployment steps.</li>
+          <li>Deploy containerized microservices with Docker and Kubernetes for consistent, repeatable releases.</li>
+          <li>Set up monitoring and alerting with Grafana and Prometheus for proactive incident detection.</li>
+          <li>Automated backup and disaster recovery with Veeam and Python/Shell scripting to meet RPO/RTO targets.</li>
+          <li>Cut cloud spend by ~25% through right-sizing and reserved-instance planning across AWS, OpenStack, VMware, and KVM.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="log-entry">
+      <div class="log-time">Mar 2023 — Oct 2023</div>
+      <div>
+        <div class="log-title">Cloud Engineer <span class="log-company">· NxtGen Datacenter</span></div>
+        <div class="log-loc">Bangalore, India</div>
+        <ul class="log-lines">
+          <li>Built and maintained enterprise cloud solutions across AWS, OpenStack, and VMware for multiple client workloads.</li>
+          <li>Stood up CI/CD pipelines with Git and GitHub for consistent, versioned deployments.</li>
+          <li>Reduced infrastructure downtime by 20% through proactive monitoring and resource optimization.</li>
+          <li>Held a 99.9% uptime SLA while resolving cross-team infrastructure issues.</li>
+          <li>Managed enterprise backup and DR with Veeam and Commvault; maintained core networking (BGP, VPN, L2/L3, SNMP).</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="log-entry">
+      <div class="log-time">Jun 2022 — Aug 2022</div>
+      <div>
+        <div class="log-title">Cloud Engineering Intern <span class="log-company">· IBM</span></div>
+        <div class="log-loc">Dehradun, India</div>
+        <ul class="log-lines">
+          <li>Built a secure text-transfer application in Python using key encryption and AWS services.</li>
+          <li>Worked the full project lifecycle — planning through deployment — under agile practices.</li>
+          <li>Gained hands-on grounding in enterprise cloud and security practices.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="credentials">
+    <p class="eyebrow">Credentials</p>
+    <h2>Certifications &amp; education</h2>
+    <div class="cred-cols">
+      <div>
+        <div class="badge-grid">
+          <span class="badge"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M1 6l3 3 7-7" stroke="#5FB88F" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>AWS Academy Cloud Foundations — Graduate Badge</span>
+          <span class="badge"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M1 6l3 3 7-7" stroke="#5FB88F" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>AWS Fundamentals: Addressing Security Risk</span>
+          <span class="badge"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M1 6l3 3 7-7" stroke="#5FB88F" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>AWS Cloud Technical Essentials</span>
+          <span class="badge"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M1 6l3 3 7-7" stroke="#5FB88F" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Fortinet Certified Fundamentals in Cybersecurity</span>
+          <span class="badge"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M1 6l3 3 7-7" stroke="#5FB88F" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Fortinet NSE 1, 2 &amp; 3 — Associate</span>
+          <span class="badge"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M1 6l3 3 7-7" stroke="#5FB88F" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Google Cloud Platform — LinkedIn Assessment</span>
+          <span class="badge"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M1 6l3 3 7-7" stroke="#5FB88F" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Git &amp; MySQL — LinkedIn Assessments</span>
+          <span class="badge"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M1 6l3 3 7-7" stroke="#5FB88F" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Introduction to Git and GitHub — Google</span>
+          <span class="badge"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M1 6l3 3 7-7" stroke="#5FB88F" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Software Development Trainee — AMCAT</span>
+        </div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-degree">B.Tech, Computer Science</div>
+        <div class="edu-school">University of Petroleum and Energy Studies (UPES), Dehradun</div>
+        <div class="edu-date">Graduated July 2023</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <p class="eyebrow">Contact</p>
+    <h2>Let's talk</h2>
+    <div class="terminal">
+      <div class="terminal-bar">
+        <span class="tdot" aria-hidden="true"></span>
+        <span class="tdot" aria-hidden="true"></span>
+        <span class="tdot" aria-hidden="true"></span>
+        <span class="terminal-title">mayank@cloud-engineer:~</span>
+      </div>
+      <div class="terminal-body">
+        <p class="term-line"><span class="prompt">$</span><span class="cmd">whoami</span></p>
+        <p class="term-line">mayank-agarwal — cloud &amp; devops engineer, based in india, open to relocate<span class="term-cursor" aria-hidden="true"></span></p>
+
+        <p class="term-line"><span class="prompt">$</span><span class="cmd">cat contact.txt</span></p>
+        <div class="contact-rows">
+          <div class="contact-row">
+            <span class="contact-key">email</span>
+            <span class="contact-val"><a href="mailto:mayankagarwal270320020@gmail.com">mayankagarwal270320020@gmail.com</a></span>
+            <button class="copy-btn" type="button" data-copy="mayankagarwal270320020@gmail.com">copy</button>
+          </div>
+          <div class="contact-row">
+            <span class="contact-key">phone</span>
+            <span class="contact-val"><a href="tel:+919462085246">+91 94620 85246</a></span>
+            <button class="copy-btn" type="button" data-copy="+919462085246">copy</button>
+          </div>
+          <div class="contact-row">
+            <span class="contact-key">location</span>
+            <span class="contact-val">India — open to relocating anywhere in India or abroad</span>
+          </div>
+          <div class="contact-row">
+            <span class="contact-key">linkedin</span>
+            <span class="contact-val"><a href="https://www.linkedin.com/in/mayank-agarwal-b52b691b0/" target="_blank" rel="noopener">linkedin.com/in/mayank-agarwal-b52b691b0</a></span>
+          </div>
+          <div class="contact-row">
+            <span class="contact-key">github</span>
+            <span class="contact-val"><a href="https://github.com/mayank2478" target="_blank" rel="noopener">github.com/mayank2478</a></span>
+          </div>
+          <div class="contact-row">
+            <span class="contact-key">status</span>
+            <span class="contact-val" style="color:var(--green)">available immediately</span>
+          </div>
+        </div>
+
+        <a class="btn btn-primary" href="mailto:mayankagarwal270320020@gmail.com">./reach-out --now</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>Built by Mayank Agarwal · India</footer>
+
+<script>
+  // Reduced motion check
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Session uptime counter
+  var start = Date.now();
+  var upEl = document.getElementById('uptime');
+  function pad(n){ return String(n).padStart(2, '0'); }
+  function tick(){
+    var s = Math.floor((Date.now() - start) / 1000);
+    var h = Math.floor(s / 3600);
+    var m = Math.floor((s % 3600) / 60);
+    var sec = s % 60;
+    upEl.textContent = pad(h) + ':' + pad(m) + ':' + pad(sec);
+  }
+  tick();
+  setInterval(tick, 1000);
+
+  // Reveal-on-scroll for cards/log entries
+  var revealTargets = document.querySelectorAll('.service-card, .project-card, .log-entry');
+  if ('IntersectionObserver' in window && !reduceMotion){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting){
+          entry.target.classList.add('in-view');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    revealTargets.forEach(function(el){ io.observe(el); });
+  } else {
+    revealTargets.forEach(function(el){ el.classList.add('in-view'); });
+  }
+
+  // Count-up metrics
+  var metricEls = document.querySelectorAll('.metric-value');
+  function animateCount(el){
+    var target = parseFloat(el.getAttribute('data-count'));
+    var suffix = el.getAttribute('data-suffix') || '';
+    var isDecimal = String(target).indexOf('.') !== -1;
+    if (reduceMotion){
+      el.textContent = target + suffix;
+      return;
+    }
+    var duration = 1100;
+    var startTime = null;
+    function step(ts){
+      if (!startTime) startTime = ts;
+      var progress = Math.min((ts - startTime) / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      var current = target * eased;
+      el.textContent = (isDecimal ? current.toFixed(1) : Math.round(current)) + suffix;
+      if (progress < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  if ('IntersectionObserver' in window){
+    var mio = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting){
+          animateCount(entry.target);
+          mio.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    metricEls.forEach(function(el){ mio.observe(el); });
+  } else {
+    metricEls.forEach(animateCount);
+  }
+
+  // Copy to clipboard
+  document.querySelectorAll('.copy-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var val = btn.getAttribute('data-copy');
+      navigator.clipboard.writeText(val).then(function(){
+        var original = btn.textContent;
+        btn.textContent = 'copied';
+        setTimeout(function(){ btn.textContent = original; }, 1500);
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
